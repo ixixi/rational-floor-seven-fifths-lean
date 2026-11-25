@@ -33,7 +33,7 @@ programs and the original Lean development (Lean v4.29.1) are in
 [ixixi/rational-floor-certificates](https://github.com/ixixi/rational-floor-certificates).
 
 This repository is a port of the one-step proof for 7/5 from that development
-to Lean v4.36.0 and the Lean module system. It contains only the files that
+to Lean v4.36.0-rc2 and the Lean module system. It contains only the files that
 proof needs. The preprint's results for the bases 5/2 and 5/3 are not here:
 their Lean proofs evaluate a finite pipeline with `native_decide`, which adds
 trust in the Lean compiler.
@@ -81,7 +81,7 @@ The kernel evaluation of the certificate takes several minutes.
 
 All mathematics and all Lean code in this repository were produced by AI
 systems. The original Lean development was written by GPT-6 Astra in Codex;
-the port to Lean v4.36.0 and the module system, and the files `Challenge.lean`,
+the port to Lean v4.36.0-rc2 and the module system, and the files `Challenge.lean`,
 `Solution.lean` and `formalization.yaml`, were written by Claude Fable 5.2 in
 Claude Code. The human author asked for the work to be done and did not
 contribute mathematical content to the proof. No human has reviewed the Lean

@@ -70,7 +70,7 @@ related_formalizations:
     note: >-
       The Lean development in `supplement/lean` of that repository (Lean
       v4.29.1, release v3.0.1) contains the same one-step proof for 7/5. This
-      repository is a port of that proof to Lean v4.36.0 and the Lean module
+      repository is a port of that proof to Lean v4.36.0-rc2 and the Lean module
       system, restricted to the files the 7/5 one-step proof needs. The
       mathematical content of the proofs is unchanged; the port added module
       headers, renamed one deprecated import, made one `open` unambiguous,
@@ -112,7 +112,7 @@ automation:
       models: ["Claude Fable 5.2"]
       framework: "Claude Code"
       tool_setup: >-
-        Port of the existing Lean proof to Lean v4.36.0 and the module
+        Port of the existing Lean proof to Lean v4.36.0-rc2 and the module
         system; writing of Challenge.lean, Solution.lean and this metadata.
       prompting_notes: >-
         The human author asked for the 7/5 one-step proof to be prepared for
