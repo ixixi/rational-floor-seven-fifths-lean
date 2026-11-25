@@ -1,0 +1,150 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "Infinitely many composite terms in the floor sequence of ξ(7/5)^n"
+  description: >-
+    For every real number ξ > 0, the sequence of integer parts ⌊ξ(7/5)^n⌋,
+    n = 0, 1, 2, …, contains infinitely many composite terms. The Lean proof
+    establishes the stronger statement that infinitely many terms share a
+    nontrivial divisor with 4290 = 2·3·5·11·13, by a finite graph certificate:
+    an orbit avoiding these five primes would give an infinite walk in a finite
+    labelled graph whose vertices record a residue modulo 4290 and a cell of
+    the fractional part, refined in four stages from 32 to 2048 cells, and
+    every cyclic strongly connected component of that graph is excluded by a
+    rank and phase certificate together with an elementary lemma that the
+    carry sequence of such an orbit is not eventually periodic. The finite
+    certificate is checked inside the Lean kernel (`decide +kernel`); no
+    `native_decide` and no axioms beyond `propext`, `Classical.choice` and
+    `Quot.sound` are used.
+  authors:
+    - "Yuri Odagiri"
+  responsible_maintainers:
+    - "Yuri Odagiri"
+  license: "Apache-2.0"
+
+sources:
+  - title: "Finite graph certificates for composite terms in rational floor sequences"
+    authors:
+      - "Yuri Odagiri"
+    id: "https://doi.org/10.5281/zenodo.22997709"
+    type: "paper"
+    location: "Theorem 1(i) and Corollary 2 for the base 7/5; formal coverage in Section 9.4"
+    relationship: "formalizes"
+    note: >-
+      Preprint (Zenodo, version 3.0.1, 2026), not peer reviewed. Its
+      mathematics, programs, text and Lean development were produced by AI
+      systems; see the preprint's section "Acknowledgments and disclosure of
+      AI involvement". The preprint also treats the bases 5/2 and 5/3, whose
+      Lean proofs use `native_decide` and are not part of this repository.
+    author_endorsement: "participated"
+  - title: "Integer parts of powers of rational numbers"
+    authors:
+      - "Artūras Dubickas"
+      - "Aivaras Novikas"
+    id: "https://doi.org/10.1007/s00209-005-0827-4"
+    type: "paper"
+    location: "Theorem 1 (bases 3/2, 4/3, 5/4) and Theorem 4 (nearest integers to ξ(7/5)^n)"
+    relationship: "background"
+    note: >-
+      Mathematische Zeitschrift 251 (2005), 635–648. Proves the analogous
+      statement for the integer parts with bases 3/2, 4/3 and 5/4, and for the
+      nearest integers ⌊ξ(7/5)^n + 1/2⌋ with the primes 2, 3, 5, 11. The
+      present result concerns the unshifted integer parts for 7/5.
+    author_endorsement: "not-contacted"
+  - title: "An arithmetic property of certain rational powers"
+    authors:
+      - "W. Forman"
+      - "H. N. Shapiro"
+    id: "https://doi.org/10.1002/cpa.3160200305"
+    type: "paper"
+    relationship: "background"
+    note: >-
+      Communications on Pure and Applied Mathematics 20 (1967), 561–573.
+      Infinitely many composite integer parts of powers of 3/2 and 4/3.
+    author_endorsement: "not-contacted"
+
+related_formalizations:
+  - id: "https://github.com/ixixi/rational-floor-certificates"
+    relationship: "adapts"
+    note: >-
+      The Lean development in `supplement/lean` of that repository (Lean
+      v4.29.1, release v3.0.1) contains the same one-step proof for 7/5. This
+      repository is a port of that proof to Lean v4.36.0 and the Lean module
+      system, restricted to the files the 7/5 one-step proof needs. The
+      mathematical content of the proofs is unchanged; the port added module
+      headers, renamed one deprecated import, made one `open` unambiguous,
+      and adjusted six tactic calls that the newer toolchain rejects.
+
+classification:
+  arxiv: ["math.NT"]
+  msc2020: ["11A41", "11J71", "68V20"]
+
+status:
+  scope: >-
+    The compositeness theorem for the base 7/5 only. The explicit
+    waiting-time bound for 7/5, the bases 5/2 and 5/3, and the results on the
+    reach of the certificate method in the source preprint are not
+    formalized here.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+  main_results:
+    - declaration: "RationalFloor.floor_seven_fifths_infinitely_many_composite"
+      file: "Solution.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+
+automation:
+  methods:
+    - method: "autonomous"
+      models: ["GPT-6 Astra"]
+      framework: "Codex"
+      tool_setup: >-
+        Lean 4 with Mathlib. The certificate data and verification modules
+        under `MathPaper/Finite` are generated files.
+      prompting_notes: >-
+        The human author asked for a Lean formalization of the results of the
+        preprint and gave no mathematical or proof-engineering guidance.
+    - method: "agent"
+      models: ["Claude Fable 5.2"]
+      framework: "Claude Code"
+      tool_setup: >-
+        Port of the existing Lean proof to Lean v4.36.0 and the module
+        system; writing of Challenge.lean, Solution.lean and this metadata.
+      prompting_notes: >-
+        The human author asked for the 7/5 one-step proof to be prepared for
+        registration.
+  notes: >-
+    All mathematics and all Lean code were produced by AI systems. The human
+    author's contribution to the underlying project was an initial question
+    on a different problem and non-mathematical requests; see the source
+    preprint's disclosure section.
+
+fidelity:
+  divergences: >-
+    The source theorem asserts an index n ≥ max(N, 1); the compared statement
+    asserts n ≥ N, which is implied. "Composite" is stated as a product of
+    two integers greater than one, as in the source.
+
+review:
+  status: "unchecked"
+  notes: >-
+    No human has reviewed the Lean proofs or the mathematics line by line.
+    The author has confirmed that Lean accepts the proofs. The source
+    preprint has not been peer reviewed.
+
+alignment:
+  namespace: "RationalFloor"
+  statements:
+    - source: "Corollary 2, base 7/5"
+      lean: "RationalFloor.floor_seven_fifths_infinitely_many_composite"
+      module: "Solution"
+      status: "proved"
+    - source: "Theorem 1(i): gcd(⌊ξ(7/5)^n⌋, 4290) > 1 for some n ≥ max(N, 1)"
+      lean: "MathPaper.floor_seven_fifths_visits"
+      module: "MathPaper.Main"
+      status: "proved"
+      note: "Proved in this repository but not selected in comparator.json."

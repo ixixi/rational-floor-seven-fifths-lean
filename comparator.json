@@ -1,0 +1,6 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": ["RationalFloor.floor_seven_fifths_infinitely_many_composite"],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
+}

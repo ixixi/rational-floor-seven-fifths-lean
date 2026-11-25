@@ -1,0 +1,20 @@
+name = "rational-floor-seven-fifths"
+version = "0.1.0"
+defaultTargets = ["MathPaper", "Challenge", "Solution"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "v4.36.0"
+
+[[lean_lib]]
+name = "MathPaper"
+globs = ["MathPaper.+"]
+leanOptions = { warningAsError = true }
+
+[[lean_lib]]
+name = "Challenge"
+
+[[lean_lib]]
+name = "Solution"
+leanOptions = { warningAsError = true }
