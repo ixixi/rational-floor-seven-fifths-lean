@@ -20,6 +20,10 @@ theorem RationalFloor.floor_seven_fifths_infinitely_many_composite
 the two. The proof uses only the axioms `propext`, `Classical.choice` and
 `Quot.sound`. It does not use `native_decide`.
 
+The proof is registered in the Palomar registry as
+[PALOMAR-2026-11-26-000026](https://palomar-registry.org/entry.html?id=PALOMAR-2026-11-26-000026&version=1)
+(version 1, commit `6d99fb9`).
+
 ## Source and scope
 
 The result and its proof come from the preprint
@@ -27,6 +31,7 @@ The result and its proof come from the preprint
 > Yuri Odagiri, *Finite graph certificates for composite terms in rational
 > floor sequences*, Zenodo, version 3.0.1 (2026),
 > [doi:10.5281/zenodo.22997709](https://doi.org/10.5281/zenodo.22997709),
+> also on Hexagon as [hexagon:2611.01039v1](https://hexagonmath.org/2611.01039v1),
 
 Theorem 1(i) and Corollary 2 for the base 7/5. The preprint, its verification
 programs and the original Lean development (Lean v4.29.1) are in
